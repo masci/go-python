@@ -480,4 +480,11 @@ func PySys_SetArgv(argv []string) {
 	C.PySys_SetArgv(argc, &cargs[0])
 }
 
+// const char* Py_GetVersion()
+// Py_GetVersion returns the version of this Python interpreter.
+func Py_GetVersion() string {
+	v_name := C.Py_GetVersion()
+	return C.GoString(v_name)
+}
+
 // EOF
